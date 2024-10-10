@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/phuoc-nh/gitops-udemy.git'
+    path: manifests
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+
+# Unable to create application: application spec for nginx is invalid: InvalidSpecError: Unable to generate manifests in manifests: rpc error: code = Unknown desc = manifests: app path does not exist
