@@ -14,13 +14,6 @@ spec:
       values: |
         service:
           type: NodePort
-          ports:
-            http:
-              nodePort: 80
-              port: 80
-            https:
-              nodePort: 443
-              port: 443
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
