@@ -5,5 +5,11 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - service.yaml
+- ingress.yaml
+
+configMapGenerator:
+- name: caddy-config
+  files:
+  - Caddyfile
 
 namespace: default

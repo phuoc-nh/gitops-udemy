@@ -8,13 +8,7 @@ resources:
 namespace: default
 # create patches for the deployment without changing the original file
 patches:
-- target:
-    kind: Deployment
-    name: nginx-deployment
-  patch: |-
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: nginx-deployment
-    spec:
-      replicas: 4
+- path: ingress.yaml
+  target:
+    kind: Ingress
+    name: caddy-ingress
